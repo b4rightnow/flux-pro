@@ -1,0 +1,26 @@
+{
+    "main": "js/index.js",
+    "module": "js/index.js",
+    "type": "module",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/b4rightnow/flux"
+    },
+    "dependencies": {
+        "@floating-ui/dom": "^1.6.5",
+        "@oddbird/popover-polyfill": "^0.5.0"
+    },
+    "devDependencies": {
+        "@playwright/test": "^1.44.1",
+        "brotli-size": "^4.0.0",
+        "esbuild": "0.23.0"
+    },
+    "scripts": {
+        "test": "npx playwright test --ui",
+        "build": "node build.js",
+        "watch": "esbuild js/index.js --bundle --format=esm --outfile=dist/flux.module.js --watch",
+        "esbuild:module": "esbuild js/index.js --bundle --format=esm --outfile=dist/flux.module.js --metafile=dist/meta.json",
+        "esbuild:cdn": "esbuild js/index.js --bundle --outfile=dist/flux.js",
+        "esbuild:cdn-minified": "esbuild js/index.js --bundle --minify --outfile=dist/flux.min.js"
+    }
+}
